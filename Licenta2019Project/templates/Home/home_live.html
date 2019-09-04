@@ -1,0 +1,12 @@
+{% extends "Home/home.html" %} {% block main_block %}
+<div class="container">
+    <div class="jumbotron index">
+        <p>Your Jiu Jitsu Journey starts here !</p>
+        {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+        {% else %}
+        <h2>Register or Login for a new chapter in your sport life</h2>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

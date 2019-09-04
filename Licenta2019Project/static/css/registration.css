@@ -1,0 +1,14 @@
+body {
+    background-color: darkgreen;
+    background-image: url("/static/images//kids.jpg");
+  
+    /* Half height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-color: darkgreen ;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}

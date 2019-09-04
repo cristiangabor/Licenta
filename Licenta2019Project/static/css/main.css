@@ -1,0 +1,67 @@
+h1 {
+    color:white;
+    
+
+}
+
+
+.navbar.navbar-default.navbar-static-top ul{
+    flex-direction: row;
+    background-color: #000;
+}
+
+.nav.navbar-nav li a{
+    color:white;
+    font-size: x-large;
+    display: block;
+    text-align: center;
+    padding: 16px;
+    
+}
+
+.navbar.navbar-default.navbar-static-top  {
+    padding-right: 15%;
+}
+
+body, html {
+    height: 100%;
+  }
+.bg {
+    /* The image used */
+    background-image: url("/static/images/Titans-Kids-Badges.png");
+  
+    /* Half height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-color: darkgreen ;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+.jumbotron.index h2 {
+    font-size: large;
+    color: black;
+}
+
+.registrations {
+    background-color: red;
+}
+
+
+.jumbotron {
+    background-color: transparent;
+}
+
+#test {
+    padding-right: 20%;
+    opacity: 10%;
+    background-color:transparent;
+    padding-top: 20%; 
+ 
+}
+
+.container.test {
+    background-color: darkgreen;
+}
