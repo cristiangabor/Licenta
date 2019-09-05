@@ -15,7 +15,10 @@ from django.shortcuts import redirect
 
 
 def index(request):
-    return render(request,'UserManager/index.html')
+    if(request.user.is_authenticated):
+        return redirect('/home/')
+    else:
+        return render(request,'UserManager/index.html')
 
 
 @login_required
@@ -90,7 +93,10 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        response = redirect('/home/')
+        return response
+        #return render(request,'UserManager/thank_you_for_authentifaction.html')
+
     else:
         return HttpResponse('Activation link is invalid!')
 
