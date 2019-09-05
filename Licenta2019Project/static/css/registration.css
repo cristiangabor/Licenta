@@ -1,6 +1,6 @@
 body {
     background-color: darkgreen;
-    background-image: url("/static/images//kids.jpg");
+    background-image: url("/static/images//kids.png");
   
     /* Half height */
     height: 100%;
@@ -11,4 +11,13 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
 
+}
+
+#id_usernamel {
+    color: red;
+}
+
+label {
+    color:black;
+    font-size: large;
 }

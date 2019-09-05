@@ -7,7 +7,7 @@ h1 {
 
 .navbar.navbar-default.navbar-static-top ul{
     flex-direction: row;
-    background-color: #000;
+    background-color:#343a40!important;
 }
 
 .nav.navbar-nav li a{
@@ -16,9 +16,9 @@ h1 {
     display: block;
     text-align: center;
     padding: 16px;
+    border-right: 1px solid #bbb;
     
 }
-
 .navbar.navbar-default.navbar-static-top  {
     padding-right: 15%;
 }
