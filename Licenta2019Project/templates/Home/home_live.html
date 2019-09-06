@@ -1,12 +1,10 @@
-{% extends "Home/home.html" %} {% block main_block %}
+{% extends "Home/home.html" %} {% block main_block %} {% load staticfiles %}
+<link rel='stylesheet' href="{% static 'css/home_live.css' %}">
+<script src="{% static 'js/home_live.js' %}"></script>
 <div class="container conta">
     <div class="jumbotron index">
-        <p>Your Jiu Jitsu Journey starts here !</p>
-        {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2>
-        {% else %}
-        <h2>Register or Login for a new chapter in your sport life</h2>
-        {% endif %}
+        <div id="flip">Click to slide down panel</div>
+        <div id="panel">Hello world!</div>
     </div>
 </div>
 {% endblock %}

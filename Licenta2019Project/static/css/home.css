@@ -1,9 +1,8 @@
 body {
     background-color: darkgreen;
     background-image: url("/static/images//junior.png");
-  
     /* Center and scale the image nicely */
-    background-color: darkgreen ;
+    background-color: darkgreen;
     background-position: right;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,15 +14,16 @@ ul {
 }
 
 li {
-border-right: 1px solid #bbb;
+    border-right: 1px solid #bbb;
 }
+
 .active {
-    background-color:gray;
-  }
+    background-color: gray;
+}
 
 li a:hover {
     background-color: #111;
-  }
+}
 
 .navbar-expand-sm {
     justify-content: flex-end;
@@ -32,5 +32,4 @@ li a:hover {
 #test {
     background-color: transparent;
     padding-right: 30%;
- 
 }
