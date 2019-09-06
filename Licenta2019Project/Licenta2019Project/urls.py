@@ -18,13 +18,15 @@ from django.urls import path
 from django.conf.urls import url,include
 from UserManager import views
 from Home import views as vs
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^home/', vs.home, name='home'),
+    url(r'^home/', include('Home.urls')),
     url(r'^$', views.index, name='index'),
     url(r'^special/',views.special,name='special'),
     url(r'^accounts/',include('UserManager.urls')),
     url(r'^logout/$', views.user_logout, name='logout'),
-
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -39,7 +39,7 @@ def register(request):
     # If user data is submited
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)                 # Instantiate the UserForm Form class
-        profile_form = UserProfileInfoForm(data=request.POST)   # Instantiate the UserProfileInfoForm class
+        profile_form = UserProfileInfoForm(request.POST, request.FILES)   # Instantiate the UserProfileInfoForm class
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save(commit=False)                             # Saves the user authentification data into the SQLite database
             user.is_active = False     
@@ -50,7 +50,7 @@ def register(request):
     
             # Email activation sing-in actions
             token = account_activation_token.make_token(user)
-            mail_subject = 'Activate your blog account.'
+            mail_subject = 'Activate your JiuJiTzuJourney account.'
             message = render_to_string('UserManager/acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -67,7 +67,7 @@ def register(request):
             if 'profile_pic' in request.FILES:
                 print('found it')
                 profile.profile_pic = request.FILES['profile_pic']
-            profile.save()
+                profile.save()
             registered = True
         else:
             print(user_form.errors,profile_form.errors)

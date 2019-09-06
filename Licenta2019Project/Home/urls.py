@@ -9,4 +9,5 @@ app_name = 'Home'
 # Be careful setting the name to just /login use userlogin instead!
 urlpatterns=[
     url(r'^$',  views.home, name='home'),
+    url(r'^team/$', views.team, name='team'),
 ]
