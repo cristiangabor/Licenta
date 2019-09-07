@@ -1,0 +1,67 @@
+{% extends "Home/home.html" %} {% block main_block %}{% load staticfiles %}
+<link rel='stylesheet' href="{% static 'css/home_journey.css' %}">
+<div class="container conta">
+    <div class="jumbotron index">
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="button" id="ChapterOneid" class="btn btn-primary btn-lg">Chapter 1</button>
+                <button type="button" class="btn btn-primary btn-lg">Chapter 2</button>
+
+            </div>
+            <div class="col-sm-10">
+                <div class="ChapterOne" id="ChapterOneContent">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCity(event, 'WeekOne')">Week One</button>
+                        <button class="tablinks" onclick="openCity(event, 'WeekTwo')">Week Two</button>
+                        <button class="tablinks" onclick="openCity(event, 'Progress')">Progress</button>
+
+                    </div>
+                    <div id="WeekOne" class="tabcontent">
+                        <div class="ChapterExplantion">
+                            <div class="ChapterTitle">
+                                <h3>Eat healthy</h3>
+                            </div>
+                            <div class="container">
+                                <h5>Eat one apply a day for one week</h5>
+                                <p>Our disciple will have to pay attention on eating one apple a day</p>
+                                <div class="choose-button">
+                                    <form>
+                                        <label class="radio-inline">
+                                        <input type="radio" name="optradio" checked>Own initiative
+                                      </label>
+                                        <label class="radio-inline">
+                                        <input type="radio" name="optradio">Parent initiative
+                                      </label>
+                                        </label>
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="listLegend">
+                                <li>Own initiative - 20 Points </li>
+                                <li>Parent initiative - 10 Points </li>
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+                    <div id="WeekTwo" class="tabcontent">
+                        <h3>Paris</h3>
+                        <p>Paris is the capital of France.</p>
+                    </div>
+                    <div id="Progress" class="tabcontent">
+                        <h3>Paris</h3>
+                        <p>Paris is the capital of France.</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

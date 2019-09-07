@@ -1,0 +1,10 @@
+{% extends "Home/home.html" %} {% block main_block %} {% load staticfiles %}
+<link rel='stylesheet' href="{% static 'css/home_live.css' %}">
+<script src="{% static 'js/home_live.js' %}"></script>
+<div class="container conta">
+    <div class="jumbotron index">
+        <div id="flip">Click to slide down panel</div>
+        <div id="panel">Hello world!</div>
+    </div>
+</div>
+{% endblock %}

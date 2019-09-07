@@ -1,7 +1,35 @@
 {% extends "Home/home.html" %} {% block main_block %}
 <div class="container conta">
     <div class="jumbotron index">
-        <p>Team!</p>
+        <div class="container mt-3">
+            <h2>Trainers</h2>
+            <!-- Media top -->
+            {% for instructors in all_instructors %}
+            <div class="media">
+                <img src="/media/{{instructors.profile_pic}} " alt="profile photo" class="align-self-start mr-3" style="width:100px; height:130px;">
+                <div class="media-body">
+                    <h4>{{instructors.first_name | upper }} {{instructors.second_name | upper}}</h4>
+                    <p claas="rank">{{instructors.rank_title | title}}</p>
+                    <p class="description">{{instructors.description}}</p>
+                    <br>
+                </div>
+
+            </div>
+            {% endfor %}
+            <h2>Our heros</h2>
+            <!-- Media middle -->
+            {% for user_data in all_profiles.all %}
+            <div class="media">
+                <img src="/media/{{user_data.profile_pic}} " alt="profile photo" class="align-self-start mr-3" style="width:100px; height:130px;">
+                <div class="media-body">
+                    <h4>{{user_data.user.first_name}} {{user_data.user.last_name}}</h4>
+                    <h6>Join date: {{user_data.user.date_joined}} </h6>
+                    <h6>Power: {{user_data.super_power}} </h6>
+                </div>
+            </div>
+            <br> {% endfor %}
+
+        </div>
 
     </div>
 </div>

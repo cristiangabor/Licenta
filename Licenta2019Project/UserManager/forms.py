@@ -15,10 +15,7 @@ class UserForm(forms.ModelForm):
     class Meta():
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
-        labels = {
-        'username': ''
-        }
-
+      
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")

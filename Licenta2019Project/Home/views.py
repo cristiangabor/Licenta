@@ -3,16 +3,17 @@ from UserManager.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
+from Home.models import InstructorProfile
 from UserManager.models import UserProfileInfo
+
 
 def get_profile_photo(request):
     user = request.user.username
     user_main_data = User.objects.get(username=str(user))
     #print(user_main_data.id)
-    #user_second_data = UserProfileInfo.objects.get(user_id=user_main_data.id)
+    user_second_data = UserProfileInfo.objects.get(user_id=user_main_data.id)
     #print(user_second_data)
-    #profile_pic = user_second_data.profile_pic
-    profile_pic=''
+    profile_pic = user_second_data.profile_pic
     return profile_pic
 
 def home(request):
@@ -22,10 +23,43 @@ def home(request):
             return render(request,'Home/home_live.html',{'profile_photo': profile_pic})
         else:
             return render(request,'Home/home_live.html')
-def team(request):
+
+def my_journey(request):
     if(request.user.is_authenticated):
         profile_pic = get_profile_photo(request)
         if(profile_pic):
-            return render(request,'Home/home_team.html',{'profile_photo': profile_pic})
+            return render(request,'Home/home_journey.html',{'profile_photo': profile_pic})
         else:
-            return render(request,'Home/home_team.html')
+            return render(request,'Home/home_journey.html')
+
+
+def team(request):
+    if(request.user.is_authenticated):
+        instructors = InstructorProfile.objects.all()
+        profile_data = UserProfileInfo.objects.all().select_related("user").all
+        print(profile_data)
+        #many = User.use_extra
+        #print(many.username)
+       
+        profile_pic = get_profile_photo(request)
+
+        context = {
+            "all_instructors": instructors,
+            "all_profiles" : profile_data,
+            "profile_photo" : profile_pic   
+        }
+        if(profile_pic):
+            return render(request,'Home/home_team.html',context)
+        else:
+            return render(request,'Home/home_team.html', {"all_instructors" : instructors})
+
+
+def contact(request):
+      if(request.user.is_authenticated):
+        profile_pic = get_profile_photo(request)
+        if(profile_pic):
+            return render(request,'Home/home_contact.html',{'profile_photo': profile_pic})
+        else:
+            return render(request,'Home/home_contact.html')
+
+    
