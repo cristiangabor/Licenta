@@ -82,3 +82,33 @@ ul.listLegend li {
 .ChapterOne {
     display: none;
 }
+
+.ChapterTwo {
+    display: none;
+}
+
+.ChapterThree {
+    display: none;
+}
+
+ul.errorlist {
+    display: none;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+.Radio {
+    font-size: 1em;
+}
+
+.helptext {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 5px #888888;
+}
+
+.ElementNotFoundChOneWeekOne p {
+    font-size: 2.2em;
+}

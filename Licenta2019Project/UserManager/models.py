@@ -33,7 +33,7 @@ class UserProfileInfo(models.Model):
         ]
     )
     super_power = models.CharField(
-        max_length=20,
+        max_length=30,
         choices=SuperPowerChoice,
         default=Flash,
     )

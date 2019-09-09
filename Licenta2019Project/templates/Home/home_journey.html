@@ -4,59 +4,202 @@
     <div class="jumbotron index">
         <div class="row">
             <div class="col-sm-2">
-                <button type="button" id="ChapterOneid" class="btn btn-primary btn-lg">Chapter 1</button>
-                <button type="button" class="btn btn-primary btn-lg">Chapter 2</button>
-
+                <button type="button" id="ChapterOne" class="btn btn-primary btn-lg">Chapter 1: Health</button>
+                <button type="button" id="ChapterTwo" class="btn btn-primary btn-lg">Chapter 2: Friendship </button>
+                <button type="button" id="ChapterThree" class="btn btn-primary btn-lg">Chapter 3: Responsability</button>
             </div>
             <div class="col-sm-10">
                 <div class="ChapterOne" id="ChapterOneContent">
                     <div class="tab">
-                        <button class="tablinks" onclick="openCity(event, 'WeekOne')">Week One</button>
-                        <button class="tablinks" onclick="openCity(event, 'WeekTwo')">Week Two</button>
-                        <button class="tablinks" onclick="openCity(event, 'Progress')">Progress</button>
-
+                        <button class="tablinks" onclick="openCity(event, 'ChOneWeekOne')">Ch 1:Week One</button>
+                        <button class="tablinks" onclick="openCity(event, 'ChOneWeekTwo')">Ch 1:Week Two</button>
+                        <button class="tablinks" onclick="openCity(event, 'ChOneProgress')">Ch 1:Progress</button>
                     </div>
-                    <div id="WeekOne" class="tabcontent">
+                    <div id="ChOneWeekOne" class="tabcontent">
+                        {% if chapter_one_weekone %}
                         <div class="ChapterExplantion">
                             <div class="ChapterTitle">
-                                <h3>Eat healthy</h3>
+                                <h3>Health</h3>
                             </div>
-                            <div class="container">
-                                <h5>Eat one apply a day for one week</h5>
-                                <p>Our disciple will have to pay attention on eating one apple a day</p>
-                                <div class="choose-button">
-                                    <form>
-                                        <label class="radio-inline">
-                                        <input type="radio" name="optradio" checked>Own initiative
-                                      </label>
-                                        <label class="radio-inline">
-                                        <input type="radio" name="optradio">Parent initiative
-                                      </label>
-                                        </label>
+                            <div class="containerCh1W1Cl1">
+                                <div class="form-register">
+                                    <form enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %} {{ chapter_one_weekone.as_p }}
+                                        <input type="submit" name="" value="Submit">
                                     </form>
                                 </div>
                             </div>
                             <ul class="listLegend">
                                 <li>Own initiative - 20 Points </li>
                                 <li>Parent initiative - 10 Points </li>
-
                             </ul>
-
                         </div>
-
-
+                        {% else %}
+                        <div class="ElementNotFoundChOneWeekOne">
+                            <p>Data for this was already submited. Thank you!</p>
+                        </div>
+                        {% endif %}
                     </div>
 
-                    <div id="WeekTwo" class="tabcontent">
-                        <h3>Paris</h3>
-                        <p>Paris is the capital of France.</p>
+                    <div id="ChOneWeekTwo" class="tabcontent">
+                        {% if chapter_one_weektwo %}
+                        <div class="ChapterExplantion">
+                            <div class="ChapterTitle">
+                                <h3>Health</h3>
+                            </div>
+                            <div class="containerCh1W1Cl1">
+                                <div class="form-register">
+                                    <form enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %} {{ chapter_one_weektwo.as_p }}
+                                        <input type="submit" name="" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="listLegend">
+                                <li>Own initiative - 20 Points </li>
+                                <li>Parent initiative - 10 Points </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="ElementNotFoundChOneWeekOne">
+                            <p>Data for this was already submited. Thank you!</p>
+                        </div>
+                        {% endif %}
                     </div>
-                    <div id="Progress" class="tabcontent">
-                        <h3>Paris</h3>
-                        <p>Paris is the capital of France.</p>
+                    <div id="ChOneProgress" class="tabcontent">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{ ChapterOneProgress }}%">{{ ChapterOneProgress }}%</div>
+                        </div>
                     </div>
+                </div>
 
 
+                <div class="ChapterTwo" id="ChapterOneContent">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCity(event, 'ChTwoWeekOne')">Ch 2:Week One</button>
+                        <button class="tablinks" onclick="openCity(event, 'ChTwoWeekTwo')">Ch 2:Week Two</button>
+                        <button class="tablinks" onclick="openCity(event, 'ChTwoProgress')">Ch 2:Progress</button>
+                    </div>
+                    <div id="ChTwoWeekOne" class="tabcontent">
+                        {% if chapter_two_weekone %}
+                        <div class="ChapterExplantion">
+                            <div class="ChapterTitle">
+                                <h3>Friendship</h3>
+                            </div>
+                            <div class="containerCh1W1Cl1">
+                                <div class="form-register">
+                                    <form enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %} {{ chapter_two_weekone.as_p }}
+                                        <input type="submit" name="" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="listLegend">
+                                <li>Own initiative - 20 Points </li>
+                                <li>Parent initiative - 10 Points </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="ElementNotFoundChOneWeekOne">
+                            <p>Data for this was already submited. Thank you!</p>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div id="ChTwoWeekTwo" class="tabcontent">
+                        {% if chapter_two_weektwo %}
+                        <div class="ChapterExplantion">
+                            <div class="ChapterTitle">
+                                <h3>Friendship</h3>
+                            </div>
+                            <div class="containerCh1W1Cl1">
+                                <div class="form-register">
+                                    <form enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %} {{ chapter_two_weektwo.as_p }}
+                                        <input type="submit" name="" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="listLegend">
+                                <li>Own initiative - 20 Points </li>
+                                <li>Parent initiative - 10 Points </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="ElementNotFoundChOneWeekOne">
+                            <p>Data for this was already submited. Thank you!</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div id="ChTwoProgress" class="tabcontent">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{ ChapterTwoProgress }}%">{{ ChapterTwoProgress }}%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ChapterThree" id="ChapterOneContent">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCity(event, 'ChThreeWeekOne')">Ch 3:Week One</button>
+                        <button class="tablinks" onclick="openCity(event, 'ChThreeWeekTwo')">Ch 3:Week Two</button>
+                        <button class="tablinks" onclick="openCity(event, 'ChThreeProgress')">Ch 3:Progress</button>
+                    </div>
+                    <div id="ChThreeWeekOne" class="tabcontent">
+                        {% if chapter_three_weekone %}
+                        <div class="ChapterExplantion">
+                            <div class="ChapterTitle">
+                                <h3>Responsability</h3>
+                            </div>
+                            <div class="containerCh1W1Cl1">
+                                <div class="form-register">
+                                    <form enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %} {{ chapter_three_weekone.as_p }}
+                                        <input type="submit" name="" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="listLegend">
+                                <li>Own initiative - 20 Points </li>
+                                <li>Parent initiative - 10 Points </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="ElementNotFoundChOneWeekOne">
+                            <p>Data for this was already submited. Thank you!</p>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div id="ChThreeWeekTwo" class="tabcontent">
+                        {% if chapter_three_weektwo %}
+                        <div class="ChapterExplantion">
+                            <div class="ChapterTitle">
+                                <h3>Responsability</h3>
+                            </div>
+                            <div class="containerCh1W1Cl1">
+                                <div class="form-register">
+                                    <form enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %} {{ chapter_three_weektwo.as_p }}
+                                        <input type="submit" name="" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                            <ul class="listLegend">
+                                <li>Own initiative - 20 Points </li>
+                                <li>Parent initiative - 10 Points </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="ElementNotFoundChOneWeekOne">
+                            <p>Data for this was already submited. Thank you!</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div id="ChThreeProgress" class="tabcontent">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{ ChapterThreeProgress }}%">{{ ChapterThreeProgress }}%</div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

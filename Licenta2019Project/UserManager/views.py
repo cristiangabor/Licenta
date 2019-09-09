@@ -50,7 +50,7 @@ def register(request):
     
             # Email activation sing-in actions
             token = account_activation_token.make_token(user)
-            mail_subject = 'Activate your JiuJiTzuJourney account.'
+            mail_subject = 'Activate your Jiu-Ji-Tsu account.'
             message = render_to_string('UserManager/acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -89,8 +89,8 @@ def activate(request, uidb64, token):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
-        user.is_superuser =True
-        user.is_staff = True
+        user.is_superuser =False
+        user.is_staff = False
         user.save()
         login(request, user)
         # return redirect('home')

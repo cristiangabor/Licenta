@@ -25,7 +25,39 @@ function openCity(evt, cityName) {
 }
 
 $(document).ready(function() {
-    $("#ChapterOneid").click(function() {
-        $("#ChapterOneContent").toggle("slide", { direction: "right" }, 1000);
+    $("#ChapterOne").click(function() {
+        if ($(".ChapterTwo").is(":visible")) {
+            $(".ChapterTwo").toggle("slow")
+        }
+        if ($(".ChapterThree").is(":visible")) {
+            $(".ChapterThree").toggle("slow")
+        }
+        $(".ChapterOne").toggle("slow");
+    });
+});
+
+$(document).ready(function() {
+    $("#ChapterTwo").click(function() {
+        if ($(".ChapterOne").is(":visible")) {
+            $(".ChapterOne").toggle("slow")
+        }
+        if ($(".ChapterThree").is(":visible")) {
+            $(".ChapterThree").toggle("slow")
+        }
+        $(".ChapterTwo").toggle("slow");
+
+    });
+});
+
+$(document).ready(function() {
+    $("#ChapterThree").click(function() {
+        if ($(".ChapterOne").is(":visible")) {
+            $(".ChapterOne").toggle("slow")
+        }
+        if ($(".ChapterTwo").is(":visible")) {
+            $(".ChapterTwo").toggle("slow")
+        }
+        $(".ChapterThree").toggle("slow");
+
     });
 });
