@@ -18,6 +18,52 @@ body {
 }
 
 label {
-    color:black;
+    
+    color:white;
     font-size: large;
+    font-style: italic;
+    
+}
+
+input#id_username {
+    width: 20%;
+
+}
+input#id_first_name {
+    width: 20%;
+
+
+}
+input#id_last_name {
+    width: 20%;
+
+}
+input#id_password1 {
+    width: 20%;
+
+}
+
+input {
+    background-color: #bbb;
+    display: block;
+    width: 20%;
+
+}
+
+input[type="submit" i] {
+   box-sizing: content-box;
+   font-size: 24px;
+   border-radius: 12px;
+}
+input[type="submit" i]:hover {
+    background-color: #343a40!important;
+}
+
+.form-register {
+    background-image: url("/static/images/factory.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 50%;
+    padding-left: 45%;
+    margin-bottom: 30%;
 }

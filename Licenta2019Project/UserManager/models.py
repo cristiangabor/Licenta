@@ -5,16 +5,16 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class UserProfileInfo(models.Model):
-    Flash = 'Fl'
-    Hulk = 'Hl'
-    Batman = 'Bt'
-    Superman = 'Sp'
+    Flash = 'Flash, the fastest'
+    Hulk = 'Hulk, the strongest'
+    CaptainAmerica = 'Captain, the strategic'
+    Spiderman = 'Spiderman, the stickiest'
  
     SuperPowerChoice = [
-        (Flash, 'Flah the gratest'),
-        (Hulk, 'Hulk all mighty'),
-        (Batman, 'Batman, the strategic'),
-        (Superman, 'Superman the call to advanture'),
+        (Flash, 'Flash, the fastest'),
+        (Hulk, 'Hulk, the strongest'),
+        (CaptainAmerica, 'Captain, the strategic'),
+        (Spiderman, 'Spiderman, the stickiest'),
     ]
 
     age = models.FloatField(null=True,
@@ -33,11 +33,11 @@ class UserProfileInfo(models.Model):
         ]
     )
     super_power = models.CharField(
-        max_length=2,
+        max_length=20,
         choices=SuperPowerChoice,
         default=Flash,
     )
-    profile_pic = models.ImageField(upload_to='profile_pics',blank=True)
+    profile_pic = models.ImageField(upload_to='profile_pics',blank=False)
     #user = models.OneToOneField(User,on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='use_extra', null=True)
     def __str__(self):

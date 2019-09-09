@@ -1,4 +1,5 @@
-{% extends "Home/home.html" %} {% block main_block %}
+{% extends "Home/home.html" %}  {% block main_block %} {% load staticfiles %}
+<link rel='stylesheet' href="{% static 'css/home_team.css' %}">
 <div class="container conta">
     <div class="jumbotron index">
         <div class="container mt-3">
@@ -15,11 +16,12 @@
                 </div>
 
             </div>
+            <br>
             {% endfor %}
-            <h2>Our heros</h2>
+            <h2>Super kids</h2>
             <!-- Media middle -->
             {% for user_data in all_profiles.all %}
-            <div class="media">
+            <div class="media kids">
                 <img src="/media/{{user_data.profile_pic}} " alt="profile photo" class="align-self-start mr-3" style="width:100px; height:130px;">
                 <div class="media-body">
                     <h4>{{user_data.user.first_name}} {{user_data.user.last_name}}</h4>
