@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Max
-from Home.forms import ChapterOneWeekOneForm,ChapterOneWeekTwoFrom,ChapterTwoWeekOneForm,ChapterTwoWeekTwoForm,ChapterThreeWeekOneForm,ChapterThreeWeekTwoForm
+from Home.forms import ContactForm, ChapterOneWeekOneForm,ChapterOneWeekTwoFrom,ChapterTwoWeekOneForm,ChapterTwoWeekTwoForm,ChapterThreeWeekOneForm,ChapterThreeWeekTwoForm
 from UserManager.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
@@ -8,8 +8,24 @@ from django.contrib.auth.models import User
 from Home.models import InstructorProfile,ChapterOneWeekOne,ChapterOneWeekTwo,ChapterTwoWeekOne,ChapterTwoWeekTwo,ChapterThreeWeekOne,ChapterThreeWeekTwo
 from UserManager.models import UserProfileInfo
 from django.shortcuts import redirect
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
+def send_us_email(request, ChapterOneProgress, ChapterTwoProgress,  ChapterThreeProgress):
 
+    user = request.user.username
+    mail_subject ="User {} has been making progress on his journey chapter data".format(user)
+    message = render_to_string('Home/home_userdata.html', {
+        'user': user,
+        "ChapterOneProgress": ChapterOneProgress,
+        "ChapterTwoProgress": ChapterTwoProgress,
+        "ChapterThreeProgress": ChapterThreeProgress,
+        })
+
+    to_email = 'emanuel.ciobanu1921@gmail.com'
+          
+    send_mail(mail_subject, message, 'emanuel.ciobanu1921@gmail.com', [to_email], fail_silently=False)
+            
 def get_profile_photo(request):
     user = request.user.username
     user_main_data = User.objects.get(username=str(user))
@@ -288,11 +304,13 @@ def my_journey(request):
             else:
                 chapter_three_weektwo = None
 
-
+            # Get user progress data for each Chapter
             ChapterOneProgress = get_progressChOne(request)
             ChapterTwoProgress = get_progressChTwo(request)
             ChapterThreeProgress =get_progressChThree(request)
-       
+
+            # Send user performance data
+            send_us_email(request, ChapterOneProgress, ChapterTwoProgress,  ChapterThreeProgress)
 
         if(profile_pic):
             context = {
@@ -350,9 +368,23 @@ def team(request):
 def contact(request):
       if(request.user.is_authenticated):
         profile_pic = get_profile_photo(request)
-        if(profile_pic):
-            return render(request,'Home/home_contact.html',{'profile_photo': profile_pic})
+        if request.method == 'POST':
+            my_contactform = ContactForm(data=request.POST)
+            if my_contactform.is_valid():
+                print(my_contactform)
+                
+            else:
+                print(my_contactform.errors)
         else:
-            return render(request,'Home/home_contact.html')
+           my_contactform = ContactForm() 
+            
+        if(profile_pic):
+            return render(request,'Home/home_contact.html',
+                {
+                    'profile_photo': profile_pic,
+                    'contact_form' : my_contactform
+                })
+        else:
+            return render(request,'Home/home_contact.html', {'contact_form' : my_contactform})
 
     

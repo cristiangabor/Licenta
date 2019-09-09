@@ -1,7 +1,7 @@
 from django import forms
 from Home.models import ChapterOneWeekOne,ChapterOneWeekTwo,ChapterTwoWeekOne,ChapterTwoWeekTwo,ChapterThreeWeekOne,ChapterThreeWeekTwo
 Disciple_initiative = (
-        ('Y', "Owns Initiative"),
+        ('Y', "Own Initiative"),
         ('N', "Parent Initiative"))
     
 
@@ -66,3 +66,8 @@ class ChapterThreeWeekTwoForm(forms.ModelForm):
         model = ChapterThreeWeekTwo
         fields = ["ChapterThreeWeekTwoQuestionOne","ChapterThreeWeekTwoQuestionTwo","ChapterThreeWeekTwoQuestionThree"]
 
+class ContactForm(forms.Form):
+    name = forms.CharField(label='First Name', max_length=100)
+    surrname = forms.CharField(label='Second Name', max_length=100)
+    email = forms.EmailField(label='E-mail', max_length=100)
+    feedback = forms.CharField(widget=forms.Textarea(attrs={'width':"100%", 'cols' : "80", 'rows': "10", }))
